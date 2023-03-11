@@ -108,3 +108,4 @@ Id_Mensaje int,
 foreign key (Id_Pa_Do) references paciente_doctor (Id_Pa_Do)on delete cascade on update cascade,
 foreign key (id_chat) references chat (id_chat)on delete cascade on update cascade,
 foreign key (id_mensaje) references mensaje (id_mensaje)on delete cascade on update cascade);
+ALTER USER 'root'@'localhost' identified WITH mysql_native_password BY 'n0m3l0';
