@@ -50,7 +50,7 @@
               <div class="navbar-collapse">
                 <ul id="nav" class="navbar-nav mx-auto">
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html">Principal</a>
+                    <a class="ud-menu-scroll" href="/">Principal</a>
                   </li>
 
                  
@@ -59,12 +59,12 @@
                     <a href="javascript:void(0)"> Páginas </a>
                     <ul class="ud-submenu">
                       <li class="ud-submenu-item">
-                        <a href="login_iniciosesionDoctor.html" class="ud-submenu-link">
+                        <a href="/Inicio-de-sesion" class="ud-submenu-link">
                           Inicio de sesión
                         </a>
                       </li>
                       <li class="ud-submenu-item">
-                        <a href="RegistrosDocPac.html" class="ud-submenu-link">
+                        <a href="/Registro" class="ud-submenu-link">
                           Registro
                         </a>
                       </li>
@@ -74,10 +74,10 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <a href="" class="ud-main-btn ud-login-btn">
+                <a href="/Registro" class="ud-main-btn ud-login-btn">
                   Registro
                 </a>
-                <a class="ud-main-btn ud-white-btn" href="login_iniciosesionDoctor.html">
+                <a class="ud-main-btn ud-white-btn" href="/Inicio-de-sesion">
                   Iniciar sesión
                 </a>
               </div>
@@ -119,34 +119,12 @@
                   <h1 style="color: rgb(0, 0, 0);">...</h1>
                 </div>
 
-                <!--
-                <div class="ud-contact-info-wrapper">
-                  <div class="ud-single-info">
-                    <div class="ud-info-icon">
-                      <i class="lni lni-laptop-phone"></i>
-                    </div>
-                    <div class="ud-info-meta">
-                      <h5>1. Elige un tipo de Cuenta de Glucky</h5>
-                      <p>2. Asegurese de tener una cédula profesional válida y registrada.</p>
-                      <p>3. Disfruta de nuestros servicios de gestión</p>
-                    </div>
-                  </div>
-                  <div class="ud-single-info">
-                    <div class="ud-info-icon">
-                      <i class="lni lni-envelope"></i>
-                    </div>
-                    <div class="ud-info-meta">
-                      <h5>4. Introduzca datos de manera sencilla</h5>
-                      <p>5. Proteja su información</p>
-                    </div>
-                  </div>
-                </div>
-                -->
+            
                 
               </div>
             </div>
 
-<form action="">
+<form action="/Registro/Doctor" method="post">
             <div class="row">
               <div class="column1" style="background-color:rgb(255, 255, 255);">
                 <div class="">
@@ -237,19 +215,43 @@
       
                         <h4 class="ud-contact-form-title">Lugar de contacto</h4>
                         <div class="ud-form-group">
+                          <label for="message">Estado*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe la Estado de tu consultorio" 
+                              name="EstadoForm" 
+                              required>
+                        </div>
+                        <div class="ud-form-group">
+                          <label for="message">Ciudad*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe la Ciudad de tu consultorio" 
+                              name="CiudadForm" 
+                              required>
+                        </div>
+                        <div class="ud-form-group">
+                          <label for="message">Delegación o Municipio*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe la Delegación o Municipio de tu consultorio" 
+                              name="DelMunForm" 
+                              required>
+                        </div>
+                        <div class="ud-form-group">
+                          <label for="message">Colonia*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe la colonia de tu consultorio" 
+                              name="ColoniaForm" 
+                              required>
+                        </div>
+                        <div class="ud-form-group">
                           <label for="message">Calle*</label>
                           <input 
                               type="text" 
                               placeholder="Escribe la calle de tu consultorio" 
                               name="CalleForm" 
-                              required>
-                        </div>
-                        <div class="ud-form-group">
-                          <label for="message">Número de consultorio*</label>
-                          <input 
-                              type="text" 
-                              placeholder="Escribe el número de tu consultorio" 
-                              name="NumeroConsForm" 
                               required>
                         </div>
                         <div class="ud-form-group">
@@ -260,7 +262,14 @@
                               name="CodigoPostalForm" 
                               required>
                         </div>
-      
+                        <div class="ud-form-group">
+                          <label for="message">Número de consultorio*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe el número de tu consultorio" 
+                              name="NumeroConsForm" 
+                              required>
+                        </div>
                         <h4 class="ud-contact-form-title">Contraseña</h4>
       
                         <div class="ud-form-group">
@@ -288,7 +297,7 @@
                 
                 <h3 class="achetresss">Sea bienvenido a </h3>
                 <br>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                   <img src="https://i.ibb.co/Jd8ZPmv/730-sin-t-tulo-20221215201853.png" alt="Logo" />
                 </a>
                 <br>
@@ -323,7 +332,7 @@
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6">
               <div class="ud-widget">
-                <a href="index.html" class="ud-footer-logo">
+                <a href="/" class="ud-footer-logo">
                   <img src="https://i.ibb.co/Jd8ZPmv/730-sin-t-tulo-20221215201853.png" alt="logo" />
                 </a>
                 <p class="ud-widget-desc">
