@@ -19,11 +19,11 @@ Nombre varchar(50),
 Apellidos varchar(60),
 Sexo varchar(10),
 Calle varchar (40),
+NumeroCa varchar(5),
 Colonia varchar(40),
 Del_o_Muni varchar(40),
 Codigo_Postal int,
-Estado varchar(40),
-Ciudad varchar(40),
+EstadoEntidadFe varchar(40),
 Telefono varchar(10),
 Edad int);
 create table datosmedicos(
