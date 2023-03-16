@@ -137,7 +137,7 @@
                       <h6 class="cuaosa" style="text-align: center;">Necesitas una cédula profesional</h6>
 
                       <br>
-                      <form class="ud-contact-form">
+                      <form class="ud-contact-form" action="/Registro/Doctor" method="post">
                         <div class="ud-form-group">
                           <label for="fullName">Nombre*</label>
                           <input 
@@ -215,59 +215,51 @@
       
                         <h4 class="ud-contact-form-title">Lugar de contacto</h4>
                         <div class="ud-form-group">
-                          <label for="message">Estado*</label>
+                          <label for="message">Calle*</label>
                           <input 
                               type="text" 
-                              placeholder="Escribe la Estado de tu consultorio" 
-                              name="EstadoForm" 
+                              placeholder="Escribe la Calle de tu consultorio" 
+                              name="CalleForm" 
                               required>
                         </div>
                         <div class="ud-form-group">
-                          <label for="message">Ciudad*</label>
+                          <label for="message">Número exterior*</label>
                           <input 
                               type="text" 
-                              placeholder="Escribe la Ciudad de tu consultorio" 
-                              name="CiudadForm" 
-                              required>
-                        </div>
-                        <div class="ud-form-group">
-                          <label for="message">Delegación o Municipio*</label>
-                          <input 
-                              type="text" 
-                              placeholder="Escribe la Delegación o Municipio de tu consultorio" 
-                              name="DelMunForm" 
+                              placeholder="Escribe el número exterior de tu consultorio" 
+                              name="NuExForm" 
                               required>
                         </div>
                         <div class="ud-form-group">
                           <label for="message">Colonia*</label>
                           <input 
                               type="text" 
-                              placeholder="Escribe la colonia de tu consultorio" 
+                              placeholder="Escribe la Colonia de tu consultorio" 
                               name="ColoniaForm" 
                               required>
                         </div>
                         <div class="ud-form-group">
-                          <label for="message">Calle*</label>
+                          <label for="message">Codigo postal*</label>
                           <input 
                               type="text" 
-                              placeholder="Escribe la calle de tu consultorio" 
-                              name="CalleForm" 
-                              required>
-                        </div>
-                        <div class="ud-form-group">
-                          <label for="message">Código postal*</label>
-                          <input 
-                              type="number" 
                               placeholder="Escribe el código postal de tu consultorio" 
                               name="CodigoPostalForm" 
                               required>
                         </div>
                         <div class="ud-form-group">
-                          <label for="message">Número de consultorio*</label>
+                          <label for="message">Delegación/Municipio*</label>
                           <input 
                               type="text" 
-                              placeholder="Escribe el número de tu consultorio" 
-                              name="NumeroConsForm" 
+                              placeholder="Escribe la delegación o municipio de tu consultorio" 
+                              name="DelMunForm" 
+                              required>
+                        </div>
+                        <div class="ud-form-group">
+                          <label for="message">Entidad federativa*</label>
+                          <input 
+                              type="text" 
+                              placeholder="Escribe la entidad federativa de tu consultorio" 
+                              name="EnFeForm" 
                               required>
                         </div>
                         <h4 class="ud-contact-form-title">Contraseña</h4>
