@@ -1,5 +1,5 @@
 const bodyParser = require("body-parser");
-
+const instrucciones = require('../database/instrucciones');
 const controller ={};
 
 controller.index = (req, res) => {
@@ -20,80 +20,72 @@ controller.registroDoctor = (req,res) =>{
 controller.registroPacientePost = (req,res) =>{
   const {NombreForm,ApellidosForm,EmailForm,EdadForm,
     TelefonoForm,CurpForm,sexo,tipo,PassForm} = req.body;
-  let sex;
-  if(sexo==1){
-    sex="Femenino";
-  }
-  else if(sexo==2){
-    sex="Masculino";
-  }
-  else if(sexo==3){
-    sex="SinAsignar"
-  }
-  console.log(CurpForm);
-  req.getConnection((err,conn)=>{
-    const conexion=conn;
-    conexion.query(`SELECT * FROM pacientes WHERE Curp ='${CurpForm}'` , (err,fila)=>{
-        if(fila.length==0){
-          conexion.query(`INSERT INTO pacientes VALUES('${CurpForm}','${EmailForm}','${PassForm}','${NombreForm}','${ApellidosForm}',
-          '${sex}',${EdadForm},${tipo},'${TelefonoForm}')`, (err,alta)=>{
-            if(alta){
-              console.log('Paciente registrado');
-              res.render('index');
-            }
-            else if(err){
-              console.log(err);
-              console.log('Error en el registro');
-              res.render('index');
-            }
-          });
-        }
-        else{
-          console.log('Curp registrada')
-          res.render('index');
-        }
-    });
-  });
+    console.log(CurpForm);
+  instrucciones.buscarPacientes(CurpForm, (err, resultado) => {
+    if (err) {
+      console.log(err);
+      return res.render('index');
+    }
+    else if(resultado==='no existe'){
+      instrucciones.registrarPacientes(CurpForm,EmailForm,PassForm,NombreForm,ApellidosForm,sexo,
+        EdadForm,tipo,TelefonoForm,(err,resultado)=>{
+          if(err){
+            console.log('Paciente no registrado');
+          }
+          else if(resultado){
+            console.log('Paciente registrado con exito')
+          }
+        });
+    }
+    else{
+      console.log('Curp registrada con anterioridad');
+    }
+});
 };
 
 controller.registroDoctorPost = (req,resultado) =>{
   const {NombreForm,ApellidosForm,EmailForm,EdadForm,TelefonoForm,
-    CedulaForm,sexo,EstadoForm,CiudadForm,DelMunForm,ColoniaForm,CalleForm,CodigoPostalForm,
-    NumeroConsForm,PassForm} = req.body;
-    let sex;
-  if(sexo==1){
-    sex="Femenino";
-  }
-  else if(sexo==2){
-    sex="Masculino";
-  }
-  else if(sexo==3){
-    sex="SinAsignar"
-  }
-  req.getConnection((err,conn)=>{
-    const conexion = conn;
-    conexion.query(`SELECT * FROM doctores WHERE Cedula ='${CedulaForm}'`, (err,fila)=>{
-      if(fila.length==0){
-        conexion.query(`INSERT INTO doctores VALUES('${CedulaForm}','${EmailForm}','${PassForm}','${NombreForm}',
-        '${ApellidosForm}','${sex}','${CalleForm}','${ColoniaForm}','${DelMunForm}',${CodigoPostalForm},
-        '${EstadoForm}','${CiudadForm}','${TelefonoForm}',${EdadForm})`,(err,alta)=>{
-          if(alta){
-            console.log('Doctor registrado');
-            res.render('index');
-          }
-          else if(err){
-            console.log(err);
-            console.log('Error en el registro');
-            res.render('index');
-          }
-        });
+    CedulaForm,sexo,CalleForm,NuExForm,ColoniaForm,CodigoPostalForm,DelMunForm,EnFeForm,
+    PassForm} = req.body;
+    instrucciones.buscarDoctores(CedulaForm,(err,resultado)=>{
+      if (err) {
+        console.log(err);
+        return res.render('index');
+      }
+      else if(resultado==='no existe'){
+        instrucciones.registrarDoctores(CedulaForm,EmailForm,PassForm,NombreForm,ApellidosForm,sexo,
+          CalleForm,NuExForm,ColoniaForm,DelMunForm,CodigoPostalForm,EnFeForm,TelefonoForm,EdadForm, (err,resultado)=>{
+            if(err){
+              console.log('Doctor no registrado');
+            }
+            else if(resultado){
+              console.log('Doctor registrado con exito');
+            }
+          });
       }
       else{
-        console.log('Cedula registrada')
-          res.render('index');
+        console.log('Cedula registrada con anterioridad');
       }
     });
-  });
-    
+  };
+controller.inicioSesion = (req,res)=>{
+  res.render('inicioSesion');
+};
+controller.inicioSesionPost = (req,res)=>{
+  const {UsuarioForm,contrasena} = req.body
+  if(UsuarioForm){
+    instrucciones.buscarDoctores(UsuarioForm,(err,fila)=>{
+      if(fila==='no existe'){
+        console.log('El doctor no se a registrado')
+      }
+      else{
+        const usuario = fila;
+        if(usuario.Pass==contrasena){
+          console.log('Pasale mami');
+        }
+      }
+    });
+  }
 }
+
 module.exports = controller; 
