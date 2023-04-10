@@ -9,6 +9,7 @@ controller.index = (req, res) => {
 controller.registros = (req,res) =>{
     res.render('registros');
 };
+//comentario test
 
 controller.registroPaciente = (req,res) =>{
     res.render('registroPaciente');
